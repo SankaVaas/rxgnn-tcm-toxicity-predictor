@@ -1,0 +1,28 @@
+model:
+  hidden_dim: 128
+  num_rgcn_layers: 3
+  num_relations: 5
+  dropout: 0.3
+
+training:
+  epochs: 80
+  batch_size: 64
+  lr: 3.0e-4
+  weight_decay: 1.0e-5
+  seed: 42
+  checkpoint_dir: checkpoints/
+
+loss:
+  focal_alpha: 0.75
+  focal_gamma: 1.5
+  lambda_metab: 0.2
+  lambda_contrast: 0.1
+
+data:
+  herb_db_path:  data/raw/HERB_ingredient_info.txt
+  drugbank_path: data/raw/drugbank_metabolites.csv
+  supercyp_path: data/raw/supercyp_substrate.csv
+  toxric_path:   data/raw/toxric_dili.csv
+  processed_dir: data/processed/
+  test_split:  0.20
+  val_split:   0.15
